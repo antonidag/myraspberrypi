@@ -4,7 +4,6 @@ This README provides detailed instructions on setting up a Raspberry Pi with var
 
 ## Table of Contents
 - [Overview](#overview)
-- [Requirements](#requirements)
 - [Installation](#installation)
   - [Raspberry Pi OS](#raspberry-pi-os)
   - [Ngrok](#ngrok)
@@ -17,14 +16,6 @@ This README provides detailed instructions on setting up a Raspberry Pi with var
 ## Overview
 
 This setup leverages a Raspberry Pi running Raspberry Pi OS to host various services. Incoming traffic is exposed to the internet using Ngrok and routed to different services via the KrakenD API gateway. Docker is employed for easy management and deployment of these services.
-
-## Requirements
-
-- Raspberry Pi (preferably Raspberry Pi 3 or later)
-- MicroSD card (minimum 16GB)
-- Stable internet connection
-- Ngrok account (free tier available)
-- Basic knowledge of Docker
 
 ## Installation
 
