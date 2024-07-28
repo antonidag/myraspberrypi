@@ -32,18 +32,18 @@ This setup leverages a Raspberry Pi running Raspberry Pi OS to host various serv
    - Follow the on-screen instructions to complete the initial setup.
 
 ## Architecture Diagram
-
 The following Mermaid diagram illustrates the traffic flow and architecture of the Raspberry Pi setup:
-
 ```mermaid
 graph TD
     A[Internet] -->|SSH| B[Ngrok]
     A[Internet] -->|HTTP| B[Ngrok]
-    B[Ngrok] -->|SSH| F[Raspberry PI]
-    B[Ngrok] --> |HTTP|C[KrakenD API Gateway]
-    C[KrakenD API Gateway] -->|Routing| G[Docker]
-    G[Docker] -->|v1/todo| SA[ServiceA]
-    G[Docker] --> |v1/helloworld|SB[ServiceB]
+    B[Ngrok] -->|Tunnel| F[Raspberry PI]
+    F[Raspberry PI] --> |SSH| D[OpenSSH]
+    F[Raspberry PI] --> |HTTP| C[KrakenD API Gateway]
+    C[KrakenD API Gateway] -->|v1/ollama| SA[ServiceA]
+    C[KrakenD API Gateway] -->|v1/todo| SB[ServiceA]
+    SA[ServiceA] --> G[Docker] 
+    SB[ServiceB] --> G[Docker]
 ```
 This diagram shows how internet traffic flows through Ngrok, then is routed by KrakenD, and reaches the different services managed by Docker on the Raspberry Pi.
 ### Ngrok
