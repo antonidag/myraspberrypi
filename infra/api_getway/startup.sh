@@ -1,0 +1,1 @@
+docker run -p 8080:8080 -v C:\Users\AntonBjörkman\github_private\myraspberrypi\infra\api_getway\krakend.json:/etc/krakend/krakend.json devopsfaith/krakend:2.7.0 run -c /etc/krakend/krakend.json
