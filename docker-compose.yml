@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  ollama:
+    build:
+      context: ./infra/ollama
+      dockerfile: Dockerfile  # Ensure this matches the name of your Dockerfile if different
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - .:/app/
+      - ./ollama:/root/.ollama
+    restart: always
+    tty: true
+    networks:
+      - my_network
+
+  krakend:
+    image: devopsfaith/krakend:2.7.0
+    container_name: krakend
+    ports:
+      - "8080:8080"
+    volumes:
+      - /mnt/c/Users/AntonBjörkman/github_private/myraspberrypi/infra/krakend/krakend.json:/etc/krakend/krakend.json
+    command: ["run", "-c", "/etc/krakend/krakend.json"]
+    networks:
+      - my_network
+
+volumes:
+  ollama:
+
+networks:
+  my_network:
+    driver: bridge

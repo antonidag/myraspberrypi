@@ -1,0 +1,20 @@
+{
+  "$schema": "https://www.krakend.io/schema/krakend.json",
+  "version": 3,
+  "name": "KrakenD - API Gateway",
+  "timeout": "10000ms",
+  "cache_ttl": "300s",
+  "endpoints": [
+    {
+      "endpoint": "/v1/ollama",
+      "method": "POST",
+      "backend": [
+        {
+          "url_pattern": "/api/generate",
+          "method": "POST",
+          "host": ["http://ollama:11434"]
+        }
+      ]
+    }
+  ]
+}
