@@ -22,7 +22,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - /mnt/c/Users/AntonBjörkman/github_private/myraspberrypi/infra/krakend/krakend.json:/etc/krakend/krakend.json
+      - ./infra/krakend/krakend.json:/etc/krakend/krakend.json
     command: ["run", "-c", "/etc/krakend/krakend.json"]
     networks:
       - my_network
