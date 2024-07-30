@@ -1,3 +1,4 @@
-login.sh
 infra/krakend/run.sh
-ollama
+ollama/*
+login.sh
+run.sh
